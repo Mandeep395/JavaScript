@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TODO List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TODO's List</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Items</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <h2 class="text-center">TODOs List</h2>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+                <div id="emailHelp" class="form-text">Add an item to the list.</div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description">
+            </div>
+            <button type="submit" class="btn btn-primary" id="add">Add to List</button>
+        <div id="items" class="my-4">
+            <h2>Your Items</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">SNo.</th>
+                    <th scope="col">Item Title</th>
+                    <th scope="col">Item Description</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tableBody">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Get Some Coffee</td>
+                    <td>You need coffee as you are a coder</td>
+                    <td><button class="btn btn-sm btn-primary" >Delete</button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <script>
+        function update(){
+            console.log("updating list...."); 
+           tit=document.getElementById('title').value;
+           des=document.getElementById('description').value;
+           if (localStorage.getItem('itemsJson')==null){
+           itemJsonArray=[];
+           itemJsonArray.push([tit,des]);
+           localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+        }
+        else{
+            itemJsonArrayStr=localStorage.getItem('itemsJson')
+            itemJsonArray=JSON.parse(itemJsonArrayStr);
+            itemJsonArray.push([tit,des]);
+            localStorage.setItem('itemsJson', JSON.stringify(itemJsonArray))
+         }
+         //Populate the table
+         let str="";
+         tableBody=document.getElementById("tableBody")
+         itemJsonArray.forEach((element,index) => {
+             str+=`<tr>
+                    <th scope="row">${index+1}</th>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td>
+                    <td><button class="btn btn-sm btn-primary" onclick="deleted(${index})">Delete</button></td>
+                  </tr>`;
+                      });
+         tableBody.innerHTML=str
+        }
+        add=document.getElementById("add");
+        add.addEventListener("click",update)
+        update()
+        function deleted(itemIndex){
+            console.log("Delete",itemIndex);
+            itemJsonArrayStr=localStorage.getItem('itemsJson')
+            itemJsonArray=JSON.parse(itemJsonArrayStr)
+            //Delete item index
+            itemJsonArray.splice(itemIndex,1)
+            localStorage.setItem('itemsJson',JSON.stringify(itemJsonArray))
+            update()
+        }
+    </script>
+</body>
+
+</html>

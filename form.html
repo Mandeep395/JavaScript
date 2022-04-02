@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div id="formbox">
+        <div>
+            <div id="input">
+                <input id='name' type="text" placeholder="Enter Name" required>
+                <input id='email' type="email" placeholder="Email-Id" required>
+                <input id='Clg' type="text" placeholder="College Name" required>
+                <input id='qual' type="text" placeholder="Highest Qualification" required>
+                <input type="text" id="fn" placeholder="Father Name" required>
+                <input type="text" id="mn" placeholder="Mother Name" required>
+                <input type="number" id="mobile" placeholder="Mobile No." maxlength="10" required>
+                <input type="text" id='gender' placeholder="Gender" required>
+                <textarea rows="7" id='address' name="add" column="20" placeholder="Permanent Address"
+                    required></textarea>
+            </div>
+            <div id="buttonRegister">
+                <button>Register</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        //For not taking empty inputs
+        buttonRegister.addEventListener('click', function () {
+            if ((document.getElementById('name').value == "") || (document.getElementById('email').value == "") || (document.getElementById('Clg').value == "") || (document.getElementById('qual').value == "") || (document.getElementById('fn').value == "") || (document.getElementById('mn').value == "") || (document.getElementById('gender').value == "") || (document.getElementById('address').value == "") || (document.getElementById('mobile').value == "")) {
+                alert('Kindly Fill All Fields');
+            }
+            else {
+                alert('Congratulations! You are successfully registered for course.')
+            }
+        })
+
+        //whether a name is valid or not
+        function stringContainsNumber(_string) {
+            return /\d/.test(_string);
+        }
+        email.addEventListener('click', function () {
+            if ((stringContainsNumber(document.getElementById('name').value))) {
+                document.getElementById('name').value = "";
+            }
+        })
+
+        //whether email is valid or not
+        Clg.addEventListener('click', function () {
+            let em = document.getElementById('email').value
+            if (!(em.includes('@'))) {
+                document.getElementById('email').value = "";
+            }
+        })
+
+        //whether fatherName is valid or not
+        mn.addEventListener('click', function () {
+            if ((stringContainsNumber(document.getElementById('fn').value))) {
+                document.getElementById('fn').value = "";
+            }
+        })
+
+        //whether a mother name is valid or not
+        mobile.addEventListener('click', function () {
+            if ((stringContainsNumber(document.getElementById('mn').value))) {
+                document.getElementById('mn').value = "";
+            }
+        })
+
+        //allow user to enter valid gender
+        var ma = 'MALE';
+        var fe = 'FEMALE';
+        address.addEventListener('click', function () {
+            if ((stringContainsNumber(document.getElementById('gender').value)) || (document.getElementById('gender').value.toUpperCase() != ma) && (document.getElementById('gender').value.toUpperCase() != fe)) {
+                document.getElementById('gender').value = "";
+            }
+        })
+
+        //allowing user to enter 10-digit mobile number
+        gender.addEventListener('click', function () {
+            if ((document.getElementById('mobile').value <= 1234567890) || (document.getElementById('mobile').value >= 9999999999)) {
+                document.getElementById('mobile').value = "";
+            }
+        })
+
+    </script>
+</body>
+
+</html>

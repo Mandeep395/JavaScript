@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript Statements</title>
+    </head>
+    <body>
+        <h2>JavaScript Statements</h2>
+        <blockquote>
+            A <b>JavaScript program</b>is made up of <b>Statements</b>
+        </blockquote>
+        <br>
+        A computer program is a list of "instructions" to be "executed" by a computer.
+
+In a programming language, these programming instructions are called statements.
+
+A JavaScript program is a list of programming statements.
+
+In HTML, JavaScript programs are executed by the web browser.
+<br>
+JavaScript statements are composed of:
+
+Values, Operators, Expressions, Keywords, and Comments.
+
+This statement tells the browser to write "Hello Dolly." inside an HTML element with id="demo":
+document.getElementById("demo").innerHTML = "Hello Dolly.";
+<br>
+JavaScript programs (and JavaScript statements) are often called JavaScript code.
+<br>
+Semicolons separate JavaScript statements.On the web, you might see examples without semicolons.
+Ending statements with semicolon is not required, but highly recommended
+<br><br><br>
+JavaScript Code Blocks
+JavaScript statements can be grouped together in code blocks, inside curly brackets {...}.
+
+The purpose of code blocks is to define statements to be executed together.
+
+One place you will find statements grouped together in blocks, is in JavaScript functions:
+<p id="demo1"></p>
+<p id="demo2"></p>
+<script>
+    function bufun(){
+        document.getElementById('demo1').innerHTML="Hello Mandeep";
+        document.getElementById('demo2').innerHTML="How Are you?"
+    }
+</script>
+<button type="button" onclick='bufun()'>CLICK Me</button>
+<br><br><br>
+JavaScript statements often start with a keyword to identify the JavaScript action to be performed.
+
+Our Reserved Words Reference lists all JavaScript keywords.
+<pre>
+    Keyword	Description
+var	Declares a variable
+let	Declares a block variable
+const	Declares a block constant
+if	Marks a block of statements to be executed on a condition
+switch	Marks a block of statements to be executed in different cases
+for	Marks a block of statements to be executed in a loop
+function	Declares a function
+return	Exits a function
+try	Implements error handling to a block of statements
+</pre>
+        <p id="demo"></p>
+        <script>
+            let x,y,z;
+            x=45;
+            y=67;
+            z=x*y;
+            document.getElementById('demo').innerHTML="Value of z is"+z+".";
+        </script>
+    </body>
+</html>

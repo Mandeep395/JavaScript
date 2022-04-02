@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Date And Time</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">WebSiteName</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Page 1</a></li>
+                <li><a href="#">Page 2</a></li>
+                <li><a href="#">Page 3</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="bg-light p-5 rounded"
+            style="background-color: #c7d2dd52;height: 272px; width:830px; position: absolute; top: 160px; left:251px;">
+            <h1 style="margin-left:33px;">Current Time is:
+                <span id='time'></span>
+            </h1>
+            <p class="lead" style="margin-left:33px;margin-right:36px;">This example is a quick exercise to illustrate
+                how fixed to top navbar works. As you scroll, it will remain fixed to the top of your browser’s
+                viewport.</p>
+            <a class="btn btn-lg btn-primary" href="/docs/5.1/components/navbar/" role="button"
+                style="margin-left:33px;">Browse Times&raquo;</a>
+        </div>
+    </main>
+    <script>
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            let a;
+            let date;
+            let time;
+            a = new Date();
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            date = a.toLocaleDateString(undefined,options);
+            document.getElementById('time').innerHTML = time + '<br>on ' + date;
+        }, 1000);
+    </script>
+
+</body>
+
+</html>

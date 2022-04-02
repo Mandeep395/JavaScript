@@ -1,0 +1,51 @@
+body{
+    background-color:crimson;
+}
+#formbox{
+    background-color:#1e131347;
+    color: antiquewhite;
+    width:366px;
+    height: 530px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 90px;
+    overflow: hidden;
+}
+#input input{
+    background: transparent;
+    padding: 7px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #999;
+
+    color: antiquewhite;
+    width: 299px;
+    position: relative;
+    left: 21px;
+    top:20px;
+    border-radius: 10px;
+    border-color: #1e131347;
+}
+#input textarea{
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #999;
+
+    padding: 10px;
+    color: antiquewhite;
+    width: 289px;
+    position: relative;
+    left: 21px;
+    top:20px;
+    border-radius: 15px;
+    border-color: #1e131347;
+}
+#buttonRegister button{
+    border-color:#0c0a0a47;
+    border-radius: 10px;
+     background-color: #1e131347;
+     position: relative;
+     top:25px;
+     left: 120px;
+    }

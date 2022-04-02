@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>where to add javascript</title>
+    <script>
+        function myfunction(){
+        document.getElementById('demo').innerHTML='Paragraph Changed';
+        }
+    </script>
+</head>
+<body>
+    <p id="unique">
+    </p>
+    <script>
+        document.getElementById("unique").innerHTML="Heelo JavaScript! In HTML, JavaScript code insertedbetween script and  script tags";
+
+    </script>
+    We can add script in head /body of html
+    <p id="demo">
+        javascript can change html element
+    </p>
+    <button onclick="myfunction()">Click Me!</button>
+
+    <button onclick="functionjs()">Click mme to increase font size</button>
+    <script src="3.js"></script>
+    <br>
+    An external script can be referenced in 3 different ways:
+
+1.With a full URL (a full web address)
+2.With a file path (like /js/)
+3.Without any path
+</body>
+</html>
